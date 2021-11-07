@@ -1,9 +1,13 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
+import Header from './Header'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Component {...pageProps} />
+    <div>
+      <Header />
+      <Component {...pageProps} />
+    </div>
   )
 }
 
