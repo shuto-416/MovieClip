@@ -53,8 +53,8 @@ const Header = () => {
 
                 <Flex flex = {{ base: 1 }} justify = {{ lg: 'center', md: 'start' }} >
                     <Text
-                        // textAlign = {useBreakpointValue({ base: 'center', md: 'left' })} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
-                        fontfamily = {'heading'}
+                        textAlign = {{ base: 'center', md:'left' }} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
+                        fontFamily = {'heading'}
                         color={useColorModeValue('gray.800', 'white')}
                     >
                         MOVIECLIP
