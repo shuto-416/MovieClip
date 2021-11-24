@@ -6,6 +6,7 @@ import {
     Text,
     Link,
     Icon,
+    Image,
     Avatar,
     Popover,
     PopoverTrigger,
@@ -30,7 +31,7 @@ import {
     MoonIcon,
     SunIcon,
  } from "@chakra-ui/icons"
- import selfImage from "../images/icon.jpg"
+ import selfImage from "../public/icon.jpg"
 
 const Header = () => {
     const { isOpen, onToggle } = useDisclosure();
@@ -122,7 +123,7 @@ const Header = () => {
                         >
                             <Avatar
                                 size = {'sm'}
-                                src = {"selfImage"}
+                                src = {selfImage}
                             />
                         </MenuButton>
 
@@ -131,7 +132,7 @@ const Header = () => {
                             <Center>
                                 <Avatar
                                     size = {'2xl'}
-                                    src = {'../images/icon.jpg'}
+                                    src = {'../public/icon.jpg'}
                                 />
                             </Center>
                             <br />
