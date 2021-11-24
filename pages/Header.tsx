@@ -28,15 +28,15 @@ const Header = () => {
         // all in Box
         <Box> 
             <Flex // header container without mobile
-                bg = {useColorModeValue('white', '#1A202C')}
-                color = {useColorModeValue('#4A5568', 'white')}
+                bg = {useColorModeValue('white', 'gray.800')}
+                color = {useColorModeValue('gray.600', 'white')}
                 minH = {'60px'} // minimum height
                 // base -> 全体templete適用?みたいな
                 py = {{ base: 2 }} // padding top & bottom
                 px = {{ base: 4 }} // padding left & right
                 borderBottom = {1} // border bottom
                 borderStyle={'solid'}
-                borderColor = {useColorModeValue('#E2E8F0', '#171923')} // border color
+                borderColor = {useColorModeValue('gray.200', 'gray.900')} // border color
                 align = {'center'}
             >
                 {/* HumburgerIcon & closeIcon when the mobile size */}
@@ -57,8 +57,9 @@ const Header = () => {
                 <Flex flex = {{ base: 1 }} justify = {{ base: 'center', md: 'start' }} >
                     <Text
                         textAlign = {{ base: 'center', md: 'left' }} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
-                        fontFamily = {'heading'}
-                        color={useColorModeValue('#1A202C', 'white')}
+                        fontWeight = {'bold'}
+                        fontSize = {{ base: 'lg', md: 'xl' }}
+                        color={useColorModeValue('gray.800', 'white')}
                     >
                         MOVIECLIP
                     </Text>
@@ -89,9 +90,9 @@ const Header = () => {
                         fontSize = {'sm'}
                         fontWeight = {600}
                         color = {'white'} // font color
-                        bg = {'#ED64A6'} // back ground color
+                        bg = {'pimk.400'} // back ground color
                         href = {'#'}
-                        _hover = {{ bg: '#F687B3' }} // hover action
+                        _hover = {{ bg: 'pink.300' }} // hover action
                     >
                         Sign Up
                     </Button>
@@ -107,9 +108,9 @@ const Header = () => {
 
 // Desktop size(一番でかいサイズ)の時のNav表示(title sign in sign up以外)
 const DesktopNav = () => {
-    const linkColor = useColorModeValue('#4A5568', '#E2E8F0');
-    const linkHoverColor = useColorModeValue('#1A202C', 'white');
-    const popoverContentBgColor = useColorModeValue('white', '#1A202C');
+    const linkColor = useColorModeValue('gray.600', 'gray.200');
+    const linkHoverColor = useColorModeValue('gray.800', 'white');
+    const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
     return(
         <Stack direction = {'row'} spacing = {4}>
@@ -164,14 +165,14 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
             display = {'block'}
             p = {2}
             rounded = {'md'}
-            _hover = {{ bg: useColorModeValue('#FFF5F7', '#171923') }}
+            _hover = {{ bg: useColorModeValue('pink.50', 'gray.900') }}
         >
             <Stack direction = {'row'} align = {'center'}>
 
                 <Box>
                     <Text
                         transition = {'all .3s ease'}
-                        _groupHover = {{ color: '#ED64A6' }}
+                        _groupHover = {{ color: 'pink.400' }}
                         fontWeight = {500}
                     >
                         {label}
@@ -188,7 +189,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
                     align = {'center'}
                     flex = {1}
                 >
-                    <Icon color = {'#ED64A6'} h = {5} w = {5} as={ChevronRightIcon} />
+                    <Icon color = {'pink.400'} h = {5} w = {5} as={ChevronRightIcon} />
                 </Flex>
             </Stack>
         </Link>
@@ -198,7 +199,7 @@ const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
 const MobileNav = () => {
     return(
         <Stack
-            bg = {useColorModeValue('white', '#1A202C')}
+            bg = {useColorModeValue('white', 'gray.800')}
             p = {4}
             display = {{ md: 'none' }}
         >
@@ -224,7 +225,7 @@ const MobileNavItem = ({ label, href, children }: NavItem) => {
             >
                 <Text
                     fontWeight = {600}
-                    color = {useColorModeValue('#4A5568', '#E2E8F0')}
+                    color = {useColorModeValue('gray.600', 'gray.200')}
                 >
                     {label}
                 </Text>
@@ -245,7 +246,7 @@ const MobileNavItem = ({ label, href, children }: NavItem) => {
                     pl = {4}
                     borderLeft = {1}
                     borderStyle = {'solid'}
-                    borderColor = {useColorModeValue('#E2E8F0', '#2D3748')}
+                    borderColor = {useColorModeValue('gray.200', 'gray.700')}
                     align = {'start'}
                 >
                     {children && children.map((child) => (
