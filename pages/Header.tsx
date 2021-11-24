@@ -12,6 +12,7 @@ import {
     Collapse,
     IconButton,
     useDisclosure,
+    useColorMode,
     useColorModeValue,
   } from "@chakra-ui/react"
 import { 
@@ -19,10 +20,13 @@ import {
     CloseIcon,
     ChevronRightIcon,
     ChevronDownIcon,
+    MoonIcon,
+    SunIcon,
  } from "@chakra-ui/icons"
 
 const Header = () => {
     const { isOpen, onToggle } = useDisclosure();
+    const { colorMode, toggleColorMode } = useColorMode();
 
     return(
         // all in Box
@@ -75,6 +79,10 @@ const Header = () => {
                     direction = {'row'}
                     spacing = {6}
                 >
+                    <Button onClick={toggleColorMode}>
+                        {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
+                    </Button>
+
                     <Button
                         as = {'a'}
                         fontSize = {'sm'} // sm: small
@@ -90,7 +98,7 @@ const Header = () => {
                         fontSize = {'sm'}
                         fontWeight = {600}
                         color = {'white'} // font color
-                        bg = {'pimk.400'} // back ground color
+                        bg = {'pink.400'} // back ground color
                         href = {'#'}
                         _hover = {{ bg: 'pink.300' }} // hover action
                     >
