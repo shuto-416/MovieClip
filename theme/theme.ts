@@ -1,10 +1,10 @@
 import { extendTheme } from "@chakra-ui/react"
-import colors from "./colors"
-import space from "./space"
-import fonts from "./fonts"
-import lineHeight from "./lineHeight"
-import sizing from "./sizing"
-import zIndex from "./zIndex"
+import colors from "./appearance/colors"
+import space from "./appearance/space"
+import fonts from "./components/fonts"
+import lineHeight from "./appearance/lineHeight"
+import sizing from "./appearance/sizing"
+import zIndex from "./appearance/zIndex"
 
 const theme = extendTheme({
     colors,

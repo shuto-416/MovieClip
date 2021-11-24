@@ -6,6 +6,7 @@ import {
     Text,
     Link,
     Icon,
+    Avatar,
     Popover,
     PopoverTrigger,
     PopoverContent,
@@ -14,6 +15,12 @@ import {
     useDisclosure,
     useColorMode,
     useColorModeValue,
+    Menu,
+    MenuButton,
+    MenuList,
+    MenuItem,
+    MenuDivider,
+    Center,
   } from "@chakra-ui/react"
 import { 
     HamburgerIcon,
@@ -23,6 +30,7 @@ import {
     MoonIcon,
     SunIcon,
  } from "@chakra-ui/icons"
+ import selfImage from "../images/icon.jpg"
 
 const Header = () => {
     const { isOpen, onToggle } = useDisclosure();
@@ -104,6 +112,38 @@ const Header = () => {
                     >
                         Sign Up
                     </Button>
+
+                    <Menu>
+                        <MenuButton
+                            as = {'button'}
+                            rounded = {'full'}
+                            cursor = {'pointer'}
+                            minW = {'0'}
+                        >
+                            <Avatar
+                                size = {'sm'}
+                                img = {"selfImage"}
+                            />
+                        </MenuButton>
+
+                        <MenuList alignItems = {'center'}>
+                            <br />
+                            <Center>
+                                <Avatar
+                                    size = {'2xl'}
+                                    img = {'../images/icon.jpg'}
+                                />
+                            </Center>
+                            <br />
+                            <Center>
+                                <p>Hamachan dao</p>
+                            </Center>
+                            <MenuDivider />
+                            <MenuItem>GitHub</MenuItem>
+                            <MenuItem>Twitter</MenuItem>
+                            <MenuItem>instagram</MenuItem>
+                        </MenuList>
+                    </Menu>
                 </Stack>
  
             </Flex>
