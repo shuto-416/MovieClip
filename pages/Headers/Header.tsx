@@ -26,6 +26,7 @@ import {
 
  import DesktopNav from "./DesktopNav"
  import MobileNav from "./MobileNav"
+ import selfImage from "../../public/icon.jpg"
 
 const Header = () => {
     const { isOpen, onToggle } = useDisclosure();
@@ -117,7 +118,7 @@ const Header = () => {
                         >
                             <Avatar
                                 size = {'sm'}
-                                src = {'https://github.com/shuto-416/MovieClip/blob/main/public/icon.jpg'}
+                                src = {selfImage}
                             />
                         </MenuButton>
 
@@ -126,7 +127,7 @@ const Header = () => {
                             <Center>
                                 <Avatar
                                     size = {'2xl'}
-                                    src = {'../public/icon.jpg'}
+                                    src = "../../public/icon.jpg"
                                 />
                             </Center>
                             <br />
