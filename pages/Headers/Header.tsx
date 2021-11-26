@@ -24,6 +24,7 @@ import {
     SunIcon,
  } from "@chakra-ui/icons"
 
+ import Head from "next/head";
  import DesktopNav from "./DesktopNav"
  import MobileNav from "./MobileNav"
  import selfImage from "../../public/icon.jpg"
@@ -33,7 +34,12 @@ const Header = () => {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return(
-        // all in Box
+        <div>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com"/>
+                <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"/>
+            </Head>
         <Box> 
             <Flex // header container without mobile
                 bg = {useColorModeValue('white', 'gray.800')}
@@ -66,13 +72,14 @@ const Header = () => {
                     <Text
                         textAlign = {{ base: 'center', md: 'left' }} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
                         fontWeight = {'bold'}
-                        fontSize = {{ base: 'lg', md: 'xl' }}
+                        fontFamily={'Anton'}
+                        fontSize = {{ base: 'xl', md: '3xl' }}
                         color={useColorModeValue('gray.800', 'white')}
                     >
                         MOVIECLIP
                     </Text>
 
-                    <Flex display = {{ base:'none', md:'flex' }} ml = {10} >
+                    <Flex display = {{ base:'none', md:'flex' }} ml = {10} mt = {2.5}>
                         <DesktopNav />
                     </Flex>
                 </Flex>
@@ -147,6 +154,7 @@ const Header = () => {
                 <MobileNav />
             </Collapse>
         </Box>
+        </div>
     )
 }
 
