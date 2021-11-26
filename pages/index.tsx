@@ -1,12 +1,73 @@
-import type { NextPage } from 'next'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import {
+  Text,
+  Stack,
+  Button,
+  Heading,
+  Container,
+} from '@chakra-ui/react'
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
-    <div className={styles.container}>
-      <h1>hello</h1>
+    <div>
+      <Head>
+        <link
+          href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" // from google fonts
+          rel="stylesheet"
+        />
+      </Head>
+      <Container maxW={'3xl'}>
+        <Stack
+          textAlign={'center'}
+          spacing={{ base: 8, md: 14}}
+          py={{ base: 20, md: 36 }}
+        >
+          <Heading
+            fontWeight={600}
+            fontFamily={'Arial Black'}
+            fontSize={{ base: '3xl', sm: '5xl', md: '7xl' }}
+            lineHeight={'110%'}
+          >
+            MOVIE CLIP <br />
+            <Text color={'green.400'} fontSize={{base: 'xl', sm: '3xl', md: '5xl'}}>
+              Can you forgive me 4 my selfish evaluation?
+            </Text>
+          </Heading>
+          <Text color={'gray.500'}>
+            It is a site that evaluates movies on its own. Oh sorry, It's a lie, and it's actually a site created by searching for a suitable theme to use chakra ui. gomenne. yurushitene. okoranaidene.
+          </Text>
+          <Stack
+            direction={'column'}
+            spacing={3}
+            align={'center'}
+            alignSelf={'center'}
+            position={'relative'}
+          >
+            <Button
+              colorScheme={'green'}
+              bg={'green.400'}
+              rounded={'full'}
+              px={6}
+              _hover={{ bg: 'green.500' }}
+            >
+              See Clips
+            </Button>
+            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
+              See More
+            </Button>
+            <Text
+                fontSize={'xl'}
+                fontFamily={'Caveat'}
+                position={'absolute'}
+                right={'-250px'}
+                top={'-15px'}
+                transform={'rotate(10deg)'}
+              >
+                Watching movies every minuites
+              </Text>
+          </Stack>
+        </Stack>
+      </Container>
     </div>
   )
 }

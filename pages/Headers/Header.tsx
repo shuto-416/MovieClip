@@ -118,7 +118,7 @@ const Header = () => {
                         >
                             <Avatar
                                 size = {'sm'}
-                                src = {selfImage}
+                                src = {"selfImage"}
                             />
                         </MenuButton>
 
