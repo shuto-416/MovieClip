@@ -56,12 +56,12 @@ const Home = () => {
               See More
             </Button>
             <Text
-                fontSize={'xl'}
+                fontSize={'3xl'}
                 fontFamily={'Caveat'}
                 position={'absolute'}
-                right={'-250px'}
-                top={'-15px'}
-                transform={'rotate(10deg)'}
+                right={'-400px'}
+                top={'-40px'}
+                transform={'rotate(8deg)'}
               >
                 Watching movies every minuites
               </Text>
