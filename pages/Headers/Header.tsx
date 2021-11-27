@@ -6,6 +6,7 @@ import {
     Text,
     Avatar,
     Collapse,
+    Icon,
     IconButton,
     useDisclosure,
     useColorMode,
@@ -24,10 +25,14 @@ import {
     SunIcon,
  } from "@chakra-ui/icons"
 
- import Head from "next/head";
- import DesktopNav from "./DesktopNav"
- import MobileNav from "./MobileNav"
- import selfImage from "../../public/icon.jpg"
+import { 
+    BsGithub,
+    BsTwitter,
+    BsInstagram,
+} from "react-icons/bs"
+import Head from "next/head";
+import DesktopNav from "./DesktopNav"
+import MobileNav from "./MobileNav"
 
 const Header = () => {
     const { isOpen, onToggle } = useDisclosure();
@@ -142,9 +147,15 @@ const Header = () => {
                                 <p>Hamachan dao</p>
                             </Center>
                             <MenuDivider />
-                            <MenuItem>GitHub</MenuItem>
-                            <MenuItem>Twitter</MenuItem>
-                            <MenuItem>instagram</MenuItem>
+                            <MenuItem>
+                                <Box as={BsGithub} size={30} pr={2}/>GitHub
+                            </MenuItem>
+                            <MenuItem>
+                                <Box as={BsTwitter} size={30} pr={2}/>Twitter
+                            </MenuItem>
+                            <MenuItem>
+                                <Box as={BsInstagram} size={30} pr={2}/>instagram
+                            </MenuItem>
                         </MenuList>
                     </Menu>
                 </Stack>

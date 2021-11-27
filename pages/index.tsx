@@ -28,8 +28,8 @@ const Home = () => {
             fontSize={{ base: '3xl', sm: '5xl', md: '7xl' }}
             lineHeight={'110%'}
           >
-            MOVIE CLIP <br />
-            <Text color={'green.400'} fontSize={{base: 'xl', sm: '3xl', md: '5xl'}}>
+           MVIECLIP<br />
+            <Text color={'green.400'} fontSize={{base: 'xl', sm: '3xl', md: '7xl'}}>
               Can you forgive me 4 my selfish evaluation?
             </Text>
           </Heading>
@@ -51,9 +51,6 @@ const Home = () => {
               _hover={{ bg: 'green.500' }}
             >
               See Clips
-            </Button>
-            <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
-              See More
             </Button>
             <Text
                 fontSize={'3xl'}
