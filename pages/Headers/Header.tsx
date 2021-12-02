@@ -6,7 +6,6 @@ import {
     Text,
     Avatar,
     Collapse,
-    Icon,
     IconButton,
     useDisclosure,
     useColorMode,
@@ -99,7 +98,7 @@ const Header = () => {
                         {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                     </Button>
 
-                    {/* <Button
+                    <Button
                         as = {'a'}
                         fontSize = {'sm'} // sm: small
                         fontWeight = {400}
@@ -119,7 +118,7 @@ const Header = () => {
                         _hover = {{ bg: 'green.300' }} // hover action
                     >
                         Sign Up
-                    </Button> */}
+                    </Button>
 
                     <Menu>
                         <MenuButton
