@@ -99,7 +99,7 @@ const Header = () => {
                         {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                     </Button>
 
-                    <Button
+                    {/* <Button
                         as = {'a'}
                         fontSize = {'sm'} // sm: small
                         fontWeight = {400}
@@ -114,12 +114,12 @@ const Header = () => {
                         fontSize = {'sm'}
                         fontWeight = {600}
                         color = {'white'} // font color
-                        bg = {'pink.400'} // back ground color
+                        bg = {'green.400'} // back ground color
                         href = {'#'}
-                        _hover = {{ bg: 'pink.300' }} // hover action
+                        _hover = {{ bg: 'green.300' }} // hover action
                     >
                         Sign Up
-                    </Button>
+                    </Button> */}
 
                     <Menu>
                         <MenuButton

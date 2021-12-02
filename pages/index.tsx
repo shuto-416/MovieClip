@@ -28,8 +28,8 @@ const Home = () => {
             fontSize={{ base: '3xl', sm: '5xl', md: '7xl' }}
             lineHeight={'110%'}
           >
-           MVIECLIP<br />
-            <Text color={'green.400'} fontSize={{base: 'xl', sm: '3xl', md: '7xl'}}>
+           MOVIECLIP<br />
+            <Text color={'purple.400'} fontSize={{base: 'xl', sm: '3xl', md: '7xl'}}>
               Can you forgive me 4 my selfish evaluation?
             </Text>
           </Heading>
@@ -44,11 +44,11 @@ const Home = () => {
             position={'relative'}
           >
             <Button
-              colorScheme={'green'}
-              bg={'green.400'}
+              colorScheme={'purple'}
+              bg={'purple.400'}
               rounded={'full'}
               px={6}
-              _hover={{ bg: 'green.500' }}
+              _hover={{ bg: 'purple.500' }}
             >
               See Clips
             </Button>
