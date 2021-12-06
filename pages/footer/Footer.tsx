@@ -2,13 +2,12 @@ import {
     Box,
     chakra,
     Container,
-    Link,
     Stack,
     Text,
     useColorModeValue,
     VisuallyHidden
 } from "@chakra-ui/react"
-import { FaInstagram, FaTwitter, FaFacebook } from 'react-icons/fa'
+import { FaInstagram, FaTwitter, FaGithub } from 'react-icons/fa'
 import Head from "next/head"
 
 const SocialButton = ({
@@ -73,14 +72,14 @@ const Footer = () => {
                 </Text>
                 <Text>©︎Movie clip for ore</Text>
                 <Stack direction={'row'} spacing={10}>
-                    <SocialButton label={'Twitter'} href={'#'}>
+                    <SocialButton label={'GitHub'} href={'https://github.com/shuto-416'} >
+                        <FaGithub />
+                    </SocialButton>
+                    <SocialButton label={'Twitter'} href={'https://twitter.com/shuto_416'}>
                         <FaTwitter />
                     </SocialButton>
-                    <SocialButton label={'Instagram'} href={'#'} >
+                    <SocialButton label={'Instagram'} href={'https://www.instagram.com/s_hamasan/'} >
                         <FaInstagram />
-                    </SocialButton>
-                    <SocialButton label={'Facebook'} href={'#'} >
-                        <FaFacebook />
                     </SocialButton>
                 </Stack>
             </Container>

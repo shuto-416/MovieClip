@@ -3,6 +3,7 @@ import {
     Stack,
     Button,
     Flex,
+    Link,
     Text,
     Avatar,
     Collapse,
@@ -138,23 +139,29 @@ const Header = () => {
                             <Center>
                                 <Avatar
                                     size = {'2xl'}
-                                    src = "../../public/icon.jpg"
+                                    src = {"../../public/icon.jpg"}
                                 />
                             </Center>
                             <br />
                             <Center>
-                                <p>Hamachan dao</p>
+                                <p>Hamachan dayo</p>
                             </Center>
                             <MenuDivider />
-                            <MenuItem>
-                                <Box as={BsGithub} size={30} pr={2}/>GitHub
-                            </MenuItem>
-                            <MenuItem>
-                                <Box as={BsTwitter} size={30} pr={2}/>Twitter
-                            </MenuItem>
-                            <MenuItem>
-                                <Box as={BsInstagram} size={30} pr={2}/>instagram
-                            </MenuItem>
+                            <Link href = {'https://github.com/shuto-416'} >
+                                <MenuItem>
+                                    <Box as={BsGithub} size={30} pr={2}/>GitHub
+                                </MenuItem>
+                            </Link>
+                            <Link href = {'https://twitter.com/shuto_416'} >
+                                <MenuItem>
+                                    <Box as={BsTwitter} size={30} pr={2}/>Twitter
+                                </MenuItem>
+                            </Link>
+                            <Link href={'https://www.instagram.com/s_hamasan/'}>
+                                <MenuItem>
+                                    <Box as={BsInstagram} size={30} pr={2}/>instagram
+                                </MenuItem>
+                            </Link>
                         </MenuList>
                     </Menu>
                 </Stack>
