@@ -5,13 +5,15 @@ import {
     Text,
     useBreakpointValue,
 } from '@chakra-ui/react'
+import TechItem from './TechItems'
 
 const Technologies = () => {
     return(
+        <div>
         <Flex
             w={'full'}
-            h={'100vh'}
-            backgroundImage={'#'}
+            h={'30vh'}
+            backgroundImage={'url(https://source.unsplash.com/vpOeXr5wmR4)'}
             backgroundPosition={'center center'}
             backgroundSize={'cover'}
         >
@@ -32,8 +34,11 @@ const Technologies = () => {
                     </Text>
                 </Stack>
             </VStack>
-                
         </Flex>
+        <Flex justify={'center'}>
+            <TechItem/>
+        </Flex>
+        </div>
     )
 }
 
