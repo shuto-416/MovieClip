@@ -11,9 +11,9 @@ const NAV_ITEMS: Array<NavItem> = [
         href: '#',
         children: [
           {
-            label: 'Technolories',
+            label: 'Technologies',
             subLabel: 'Language or something.',
-            href: '#',
+            href: '../Technologies/Technologies',
           }
         ]
       },
