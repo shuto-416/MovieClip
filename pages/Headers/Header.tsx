@@ -29,7 +29,7 @@ import {
     BsTwitter,
     BsInstagram,
 } from "react-icons/bs"
-import Head from "next/head";
+import Head from "next/head"
 import DesktopNav from "./DesktopNav"
 import MobileNav from "./MobileNav"
 
