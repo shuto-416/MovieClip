@@ -35,7 +35,7 @@ const Technologies = () => {
                 </Stack>
             </VStack>
         </Flex>
-        <Flex justify={'center'}>
+        <Flex justify={'center'} pt={'30px'}>
             <TechItem/>
         </Flex>
         </div>

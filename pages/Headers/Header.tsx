@@ -74,6 +74,7 @@ const Header = () => {
 
                 {/* title Flex component*/}
                 <Flex flex = {{ base: 1 }} justify = {{ base: 'center', md: 'start' }} >
+                    <Link href = '/' >
                     <Text
                         textAlign = {{ base: 'center', md: 'left' }} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
                         fontWeight = {'bold'}
@@ -83,6 +84,7 @@ const Header = () => {
                     >
                         MOVIECLIP
                     </Text>
+                    </Link>
 
                     <Flex display = {{ base:'none', md:'flex' }} ml = {10} mt = {2.5}>
                         <DesktopNav />
