@@ -36,7 +36,7 @@ const TechItems = ({ name, detail, icon, color }: TechItemProps) => {
             >
                 {icon}
             </Flex>
-            <Text fontWeight={500}>{name}</Text>
+            <Text fontWeight={500} fontSize={20}>{name}</Text>
             <Text color={'gray.500'}>{detail}</Text>
         </Stack>
     )

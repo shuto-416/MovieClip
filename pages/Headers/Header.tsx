@@ -74,7 +74,7 @@ const Header = () => {
 
                 {/* title Flex component*/}
                 <Flex flex = {{ base: 1 }} justify = {{ base: 'center', md: 'start' }} >
-                    <Link href = '/' >
+                    <Link href = '/' _hover={{ textDecoration: 'none' }}>
                     <Text
                         textAlign = {{ base: 'center', md: 'left' }} // ウィンドウサイズがmd以下ならcenter, md以上ならleft
                         fontWeight = {'bold'}
@@ -149,17 +149,17 @@ const Header = () => {
                                 <p>Hamachan dayo</p>
                             </Center>
                             <MenuDivider />
-                            <Link href = {'https://github.com/shuto-416'} >
+                            <Link href = {'https://github.com/shuto-416'} _hover={{ textDecoration: 'none' }}>
                                 <MenuItem>
                                     <Box as={BsGithub} size={30} pr={2}/>GitHub
                                 </MenuItem>
                             </Link>
-                            <Link href = {'https://twitter.com/shuto_416'} >
+                            <Link href = {'https://twitter.com/shuto_416'} _hover={{ textDecoration: 'none' }}>
                                 <MenuItem>
                                     <Box as={BsTwitter} size={30} pr={2}/>Twitter
                                 </MenuItem>
                             </Link>
-                            <Link href={'https://www.instagram.com/s_hamasan/'}>
+                            <Link href={'https://www.instagram.com/s_hamasan/'} _hover={{ textDecoration: 'none' }}>
                                 <MenuItem>
                                     <Box as={BsInstagram} size={30} pr={2}/>instagram
                                 </MenuItem>
