@@ -5,9 +5,11 @@ import {
     Stack,
     VStack,
     Text,
+    Heading,
     useBreakpointValue,
 } from '@chakra-ui/react'
 import * as React from 'react'
+import Head from 'next/head'
 import ClipsGrid from './ClipsGrid'
 import { products } from './ClipItems'
 import ClipCard from './ClipCard'
@@ -15,6 +17,12 @@ import ClipCard from './ClipCard'
 const MovieClip = () => {
     return (
         <div>
+            <Head>
+                <link rel="preconnect" href="https://fonts.googleapis.com"/>
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Smooch&display=swap" rel="stylesheet"/>
+            </Head>
+
             <Flex 
                 w={'full'}
                 h={'80vh'}
@@ -22,33 +30,40 @@ const MovieClip = () => {
                 backgroundSize={'cover'}
                 backgroundPosition={'center center'}
             >
-                <VStack
+                <Stack
                     w={'full'}
                     justify={'center'}
+                    direction={'row'}
                     px={useBreakpointValue({ base: 4, md: 8 })}
+                    pt={useBreakpointValue({ base: 20, md: 36 })}
                     bgGradient={'linear(to-r, gray.900, transparent)'}
                 >
-                    <Stack maxW={'2xl'} align={'flex-start'} spacing={6}>
-                        <Text
+                    <Stack maxW={'2xl'} align={'center'} spacing={6}>
+                        <Heading
                             color={'white'}
                             fontWeight={700}
-                            fontHeight={1.2}
-                            fontSize={useBreakpointValue({ base: '3xl', md: '4xl' })}
+                            fontFamily={'Smooch'}
+                            lineHeight={'150%'}
+                            fontSize={{ base: '5xl', md: '9xl' }}
                         >
                             Movie Clip
+                        </Heading>
+                        <Text color={'gray.400'} lineHeight={'150%'}>
+                            The data of each clip is managed using node.js (express) and firebase. This is the first time I've used the backend practically, so please be patient even if you're doing something strange.
                         </Text>
                         <Stack direction={'row'}>
                             <Button
                                 bg={'purple.500'}
                                 rounded={'full'}
                                 color={'white'}
+                                mt={10}
                                 _hover={{ bg: 'purple.600' }}
                             >
                                 Watch Now
                             </Button>
                         </Stack>   
                     </Stack>
-                </VStack>
+                </Stack>
             </Flex>
             <Box
                 maxW={'7xl'}

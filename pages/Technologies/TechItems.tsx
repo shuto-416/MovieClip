@@ -12,6 +12,9 @@ import {
     SiTypescript,
     SiChakraui,
     SiFirebase,
+    SiUnsplash,
+    SiNodedotjs,
+    SiExpress,
 } from 'react-icons/si'
 
 interface TechItemProps {
@@ -68,7 +71,25 @@ const TechItemColumns = () => {
             color: 'red.400',
             name: 'Firebase',
             detail: 'Firebase is a cloud-hosted platform for hosting, managing, and scaling developer applications.'
-        }
+        },
+        {
+            icon: <Icon as={SiUnsplash} w={16} h={16} />,
+            color: 'purple.400',
+            name: 'Unsplash',
+            detail: 'Unsplash is a photo sharing service. Copying url & remove photos & adding source. before unsplash.com the, you can use the free photo.'
+        },
+        {
+            icon: <Icon as={SiNodedotjs} w={20} h={20} />,
+            color: 'orange.400',
+            name: 'Node.js',
+            detail: 'Node.js is a JavaScript runtime built on Chrome\'s V8 JavaScript engine.'
+        },
+        {
+            icon: <Icon as={SiExpress} w={20} h={20} />,
+            color: 'yellow.400',
+            name: 'Express',
+            detail: 'Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications.'
+        },
     ]
 
     return (
