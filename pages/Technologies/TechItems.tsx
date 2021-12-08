@@ -43,33 +43,49 @@ const TechItems = ({ name, detail, icon, color }: TechItemProps) => {
 }
 
 const TechItemColumns = () => {
+
+    const tech_info = [
+        {
+            icon: <Icon as={SiNextdotjs} w={20} h={20} />,
+            color: 'black',
+            name: 'Next.js',
+            detail: 'Next.js is a React framework for server-rendered applications.'
+        },
+        {
+            icon: <Icon as={SiTypescript} w={16} h={16} />,
+            color: 'blue.500',
+            name: 'TypeScript',
+            detail: 'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'
+        },
+        {
+            icon: <Icon as={SiChakraui} w={20} h={20} />,
+            color: 'green.400',
+            name: 'Chakra-UI',
+            detail: 'Chakra-UI is a React UI library with a focus on simplicity and performance.'
+        },
+        {
+            icon: <Icon as={SiFirebase} w={20} h={20} />,
+            color: 'red.400',
+            name: 'Firebase',
+            detail: 'Firebase is a cloud-hosted platform for hosting, managing, and scaling developer applications.'
+        }
+    ]
+
     return (
         <Box p={4} pt={10}>
             <SimpleGrid columns={{ base:1, md:3 }} spacing={10} maxW={'6xl'} >
-                <TechItems
-                    icon={<Icon as={SiNextdotjs} w={20} h={20} />}
-                    color={'black'}
-                    name={'Next.js'}
-                    detail={'Next.js is a React framework for server-rendered applications.'}
-                />
-                <TechItems
-                    icon={<Icon as={SiTypescript} w={16} h={16} />}
-                    color={'blue.500'}
-                    name={'TypeScript'}
-                    detail={'TypeScript is a typed superset of JavaScript that compiles to plain JavaScript.'}
-                />
-                <TechItems
-                    icon={<Icon as={SiChakraui} w={20} h={20} />}
-                    color={'green.400'}
-                    name={'Chakra-UI'}
-                    detail={'Chakra-UI is a React UI library with a focus on simplicity and performance.'}
-                />
-                <TechItems
-                    icon={<Icon as={SiFirebase} w={20} h={20} />}
-                    color={'red.400'}
-                    name={'Firebase'}
-                    detail={'Firebase is a cloud-hosted platform for hosting, managing, and scaling developer applications.'}
-                />
+                {
+                    tech_info.map((obj) => {
+                        return (
+                            <TechItems
+                            icon={obj.icon}
+                            color={obj.color}
+                            name={obj.name}
+                            detail={obj.detail}
+                        />
+                        )
+                    })
+                }
             </SimpleGrid>
         </Box>
     )

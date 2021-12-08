@@ -19,22 +19,22 @@ const NAV_ITEMS: Array<NavItem> = [
       },
       {
         label: 'Movie Clips',
-        href: '#',
+        href: '../MovieClip/MovieClip',
         children: [
           {
             label: 'Action Movies',
             // subLabel: 'Action movies',
-            href: '#',
+            href: '/clips?type=action',
           },
           {
             label: 'Comedy Movies',
             // subLabel: 'Comedy movies',
-            href: '#',
+            href: '/clips?type=comedy',
           },
           {
             label: 'Anime Movies',
             // subLabel: 'Anime movies',
-            href: '#',
+            href: '/clips?type=anime',
           },
         ],
       },
