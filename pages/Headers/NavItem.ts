@@ -13,28 +13,28 @@ const NAV_ITEMS: Array<NavItem> = [
           {
             label: 'Technologies',
             subLabel: 'Language or something.',
-            href: '../Technologies/Technologies',
+            href: '/technologies',
           }
         ]
       },
       {
         label: 'Movie Clips',
-        href: '../MovieClip/MovieClip',
+        href: '/movie-clip',
         children: [
           {
             label: 'Action Movies',
             // subLabel: 'Action movies',
-            href: '/clips?type=action',
+            href: '/movie-clip?type=action',
           },
           {
             label: 'Comedy Movies',
             // subLabel: 'Comedy movies',
-            href: '/clips?type=comedy',
+            href: '/movie-clip?type=comedy',
           },
           {
             label: 'Anime Movies',
             // subLabel: 'Anime movies',
-            href: '/clips?type=anime',
+            href: '/movie-clip?type=anime',
           },
         ],
       },

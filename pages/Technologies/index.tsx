@@ -1,7 +1,6 @@
 import {
     Flex,
     Image,
-    VStack,
     Stack,
     Text,
     Heading,

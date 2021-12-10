@@ -10,28 +10,32 @@ import {
     Text,
     useBreakpointValue,
     useColorModeValue,
+    forwardRef,
 } from '@chakra-ui/react'
 import { StackProps } from '@chakra-ui/layout'
 import * as React from 'react'
 import FavoriteButton from './FavoriteButton'
-import { Product}  from './ClipItems'
+import { movie_types, movie_enum } from '../../types/movie_type'
+import { Product } from './ClipItems'
 
 interface Props {
-    product: Product
+    product: movie_types
     rootProps?: StackProps
 }
 
-const ClipCard = (props: Props) => {
-    const { product, rootProps } = props
-    const { name,img, description, rating, } = product
-    console.log('hi, unchi')
+// movie-types で指定したら、IntrinsicAttributes＆movie-types に当てはまらんみたいなエラー出た。ので、一時any使用中
+const ClipCard = (clip: movie_types) => {
+    const { title, img, description, rating } = clip
+    // const { title, img, description, rating } = clip
+
     return (
-        <Stack spacing={useBreakpointValue({ base: '4', md: '5' })} {...rootProps}>
+        <Stack spacing={useBreakpointValue({ base: '4', md: '5' })} >
+            <li>{title}, {description}</li>
             <Box position={'relative'}>
                 <AspectRatio ratio={4/3}>
                     <Image
                         src={img}
-                        alt={name}
+                        alt={title}
                         draggable={false}
                         fallback={<Skeleton />}
                         borderRadius={useBreakpointValue({ base: '4', md: '5' })}
@@ -41,13 +45,13 @@ const ClipCard = (props: Props) => {
                     position={'absolute'}
                     top={4}
                     right={4}
-                    aria-label={`Add ${name} to ypur favorite`}
+                    aria-label={`Add ${title} to ypur favorite`}
                 />
             </Box>
             <Stack>
                 <Stack spacing={1}>
                     <Text fontWeigh={'medium'} color={useColorModeValue('gray.700', 'gray.400')}>
-                        {name}
+                        {title}
                     </Text>
                     <Text fontSize={'sm'} color={useColorModeValue('gray.600', 'gray.400')}>
                         {description}

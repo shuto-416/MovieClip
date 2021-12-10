@@ -3,18 +3,81 @@ import {
     Button,
     Flex,
     Stack,
-    VStack,
     Text,
     Heading,
     useBreakpointValue,
 } from '@chakra-ui/react'
 import * as React from 'react'
 import Head from 'next/head'
+import { useRouter } from 'next/router'
 import ClipsGrid from './ClipsGrid'
-import { products } from './ClipItems'
 import ClipCard from './ClipCard'
+import { movie_types, movie_enum } from '../../types/movie_type'
+import axios from 'axios'
+import { products } from './ClipItems'
+
+// const type_filter = (q_type: any) => {
+//     switch(q_type) {
+//         case 'Action':
+//             return movie_enum.ACTION_DEFAULT
+//         case 'Comedy':
+//             return movie_enum.COMEDDY
+//         case 'Anime':
+//             return movie_enum.ANIME
+//         default:
+//             return movie_enum.MISSING
+//     }
+// }
+
+const type_filter = (q_type: any) => {
+    switch(q_type) {
+        case 'action':
+            return 0
+        case 'comedy':
+            return 1
+        case 'anime':
+            return 2
+        default:
+            return -1
+    }
+}
+
+const filter_clips = ( clips: Array<movie_types>, genre: number ) => {
+    if( genre == -1 ){
+        return []
+    }
+    
+    return clips.filter( (clip: movie_types) => {
+        return clip.genre == genre
+    })
+}
 
 const MovieClip = () => {
+
+    const { query } = useRouter()
+    const type = type_filter(query.type)
+    const [clips, setClips] = React.useState<Array<movie_types>>([])
+
+    React.useEffect(() => {
+        axios.get('http://localhost:5000/all_movies').then((res: any) => {
+            setClips(res.data)
+        })
+    })
+
+
+    if( type == -1 ) {
+        return (
+            <Box>
+                <Head>
+                    <title>MovieClip</title>
+                </Head>
+                <Flex justifyContent="center" alignItems="center" height="100vh">
+                    <Heading>Now loading...</Heading>
+                </Flex>
+            </Box>
+        )
+    }
+
     return (
         <div>
             <Head>
@@ -34,8 +97,8 @@ const MovieClip = () => {
                     w={'full'}
                     justify={'center'}
                     direction={'row'}
-                    px={useBreakpointValue({ base: 4, md: 8 })}
-                    pt={useBreakpointValue({ base: 20, md: 36 })}
+                    px={{ base: 4, md: 8 }}
+                    pt={{ base: 20, md: 36 }}
                     bgGradient={'linear(to-r, gray.900, transparent)'}
                 >
                     <Stack maxW={'2xl'} align={'center'} spacing={6}>
@@ -72,9 +135,9 @@ const MovieClip = () => {
                 py={{ base: '6', md: '8', lg: '12' }}
             >
                 <ClipsGrid>
-                    {products.map((product) => {
+                    {filter_clips(clips,type).map((clip: movie_types) => {
                         return (
-                            <ClipCard product={product}/>
+                            <ClipCard clip={clip}/>
                         )
                     })}
                 </ClipsGrid>

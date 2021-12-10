@@ -1,3 +1,4 @@
+
 export enum movie_enum {
   ACTION_DEFAULT,
   COMEDDY,
@@ -10,5 +11,7 @@ export type movie_types = {
   title: string,
   url: string,
   img?: string,
-  genre: movie_enum
+  genre: number,
+  description: string,
+  rating: number,
 }

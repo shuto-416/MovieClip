@@ -74,7 +74,7 @@ const TechItemColumns = () => {
         },
         {
             icon: <Icon as={SiUnsplash} w={16} h={16} />,
-            color: 'purple.400',
+            color: 'gray.500',
             name: 'Unsplash',
             detail: 'Unsplash is a photo sharing service. Copying url & remove photos & adding source. before unsplash.com the, you can use the free photo.'
         },
