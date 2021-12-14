@@ -69,7 +69,7 @@ const TechItemColumns = () => {
         {
             icon: <Icon as={SiFirebase} w={20} h={20} />,
             color: 'red.400',
-            name: 'Firebase',
+            name: 'Firebase (firestore & firestorage)',
             detail: 'Firebase is a cloud-hosted platform for hosting, managing, and scaling developer applications.'
         },
         {

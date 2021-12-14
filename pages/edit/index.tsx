@@ -5,11 +5,10 @@ import {
     Text,
     Box,
     Button,
-    FormControl,
-    FormLabel,
-    Input,
     useColorModeValue,
 } from '@chakra-ui/react'
+
+import EditItems from './EditItems'
 
 const Edit = () => {
     return(
@@ -32,14 +31,7 @@ const Edit = () => {
                     p={8}
                 >
                     <Stack spacing={4}>
-                        <FormControl id={'title'}>
-                            <FormLabel>Title</FormLabel>
-                            <Input placeholder={'Title'} />
-                        </FormControl>
-                        <FormControl id={'description'}>
-                            <FormLabel>Description</FormLabel>
-                            <Input placeholder={'Description'} />
-                        </FormControl>
+                        <EditItems/>
                         <Stack spacing={10}>
                             <Button
                                 bgGradient={'linear(to-r, red.500,pink.500)'}

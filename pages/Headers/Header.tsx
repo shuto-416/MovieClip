@@ -45,7 +45,7 @@ const Header = () => {
                 <link rel="preconnect" href="https://fonts.gstatic.com"/>
                 <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet"/>
             </Head>
-        <Box> 
+        <Box>
             <Flex // header container without mobile
                 bg = {useColorModeValue('white', 'gray.800')}
                 color = {useColorModeValue('gray.600', 'white')}
