@@ -5,7 +5,6 @@ import {
     Stack,
     Text,
     Heading,
-    useBreakpointValue,
 } from '@chakra-ui/react'
 import * as React from 'react'
 import Head from 'next/head'
@@ -14,39 +13,29 @@ import ClipsGrid from './ClipsGrid'
 import ClipCard from './ClipCard'
 import { movie_types, movie_enum } from '../../types/movie_type'
 import axios from 'axios'
-import { products } from './ClipItems'
-
-// const type_filter = (q_type: any) => {
-//     switch(q_type) {
-//         case 'Action':
-//             return movie_enum.ACTION_DEFAULT
-//         case 'Comedy':
-//             return movie_enum.COMEDDY
-//         case 'Anime':
-//             return movie_enum.ANIME
-//         default:
-//             return movie_enum.MISSING
-//     }
-// }
 
 const type_filter = (q_type: any) => {
     switch(q_type) {
+        case 'all_clips':
+            return movie_enum.ALL
         case 'action':
-            return 0
+            return movie_enum.ACTION
         case 'comedy':
-            return 1
+            return movie_enum.COMEDDY
         case 'anime':
-            return 2
+            return movie_enum.ANIME
         default:
-            return -1
+            return movie_enum.MISSING
     }
 }
 
 const filter_clips = ( clips: Array<movie_types>, genre: number ) => {
-    if( genre == -1 ){
+    if( genre == movie_enum.MISSING ){
         return []
     }
-    
+    if( genre == movie_enum.ALL ){
+        return clips
+    }
     return clips.filter( (clip: movie_types) => {
         return clip.genre == genre
     })

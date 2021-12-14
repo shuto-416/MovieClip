@@ -101,27 +101,18 @@ const Header = () => {
                         {colorMode === 'light' ? <SunIcon /> : <MoonIcon />}
                     </Button>
 
-                    <Button
-                        as = {'a'}
-                        fontSize = {'sm'} // sm: small
-                        fontWeight = {400}
-                        variant = {'link'}
-                        href = {'#'}
-                    >
-                        Sign In
-                    </Button>
-
-                    <Button
-                        display={{ base: 'none', md: 'inline-flex' }}
-                        fontSize = {'sm'}
-                        fontWeight = {600}
-                        color = {'white'} // font color
-                        bg = {'green.400'} // back ground color
-                        href = {'#'}
-                        _hover = {{ bg: 'green.300' }} // hover action
-                    >
-                        Sign Up
-                    </Button>
+                    <Link href={'/edit'} _hover={{ textDecoration: 'none' }}>
+                        <Button
+                            display={{ base: 'none', md: 'inline-flex' }}
+                            fontSize = {'sm'}
+                            fontWeight = {600}
+                            color = {'white'} // font color
+                            bgGradient={'linear(to-r, red.400,pink.400)'}
+                            _hover = {{ bg: 'linear(to-r, red.400,pink.400)' }} // hover action
+                        >
+                            EDIT
+                        </Button>
+                    </Link>
 
                     <Menu>
                         <MenuButton

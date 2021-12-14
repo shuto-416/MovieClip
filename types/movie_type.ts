@@ -1,13 +1,13 @@
-
 export enum movie_enum {
-  ACTION_DEFAULT,
+  ALL,
+  ACTION,
   COMEDDY,
   ANIME,
   MISSING = -1
 }
 
 export type movie_types = {
-  id: number,
+  id: movie_enum,
   title: string,
   url: string,
   img?: string,
