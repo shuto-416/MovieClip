@@ -32,6 +32,11 @@ const EditItems = () => {
         'Action','Comedy','Anime'
     ]
 
+    // Receives an element of type EditItemProps from the input and displays it on the console .
+    const onSubmit = (data: EditItemsProps) => {
+        console.log(data)
+    }
+    
     return (
         <Stack spacing={4}>
 
