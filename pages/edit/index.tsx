@@ -4,7 +4,6 @@ import {
     Heading,
     Text,
     Box,
-    Button,
     useColorModeValue,
 } from '@chakra-ui/react'
 
@@ -30,20 +29,7 @@ const Edit = () => {
                     bg={useColorModeValue('white', 'gray.700')}
                     p={8}
                 >
-                    <Stack spacing={4}>
-                        <EditItems/>
-                        <Stack spacing={10}>
-                            <Button
-                                bgGradient={'linear(to-r, red.500,pink.500)'}
-                                color={'white'}
-                                _hover={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
-                                _active={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
-                                _focus={{ boxShadow: 'none' }}
-                            >
-                                Create Clip
-                            </Button>
-                        </Stack>
-                    </Stack>
+                    <EditItems/>
                 </Box>
             </Stack>
         </Flex>

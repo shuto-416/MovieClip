@@ -1,4 +1,5 @@
 import {
+    Button,
     Stack,
     FormControl,
     FormLabel,
@@ -12,7 +13,7 @@ import {
     NumberDecrementStepper,
 } from '@chakra-ui/react'
 import * as React from "react"
-import { useForm } from 'react-hook-form'
+import { useForm, useFormState } from 'react-hook-form'
 
 interface EditItemsProps {
     title: string,
@@ -23,8 +24,8 @@ interface EditItemsProps {
 
 const EditItems = () => {
 
-    const { register, formState: {errors, isSubmitting}, handleSubmit } = useForm<EditItemsProps>({
-        mode: 'all',
+    const { register, formState: {errors, isSubmitting, isValid}, handleSubmit } = useForm<EditItemsProps>({
+        mode: 'all',  // 何も入力されていない場合、入力内容が正しくない場合、それぞれにおいてバリデーションが走る
     })
 
     const genreArray = [
@@ -32,7 +33,7 @@ const EditItems = () => {
     ]
 
     return (
-        <Stack>
+        <Stack spacing={4}>
 
             <FormControl
                 id={'title'}
@@ -50,9 +51,19 @@ const EditItems = () => {
                 </FormErrorMessage>
             </FormControl>
 
-            <FormControl id={'description'}>
+            <FormControl
+                id={'description'}
+                isRequired
+                isInvalid={errors.description ? true:false}
+            >
                 <FormLabel htmlFor={'description'}>Description</FormLabel>
-                <Input placeholder={'Description'} />
+                <Input
+                    placeholder={'Description'}
+                    {...register('description', { required: 'Description of the movie is required.'})}
+                />
+                <FormErrorMessage>
+                    {errors.description && errors.description.message}
+                </FormErrorMessage>
             </FormControl>
 
             <FormControl
@@ -77,7 +88,11 @@ const EditItems = () => {
                 </FormErrorMessage>
             </FormControl>
 
-            <FormControl id={'genre'} isRequired isInvalid={errors.genre ? true:false}>
+            <FormControl
+                id={'genre'}
+                isRequired
+                isInvalid={errors.genre ? true:false}
+            >
                 <FormLabel htmlFor={'genre'}>Genre</FormLabel>
                 <Select placeholder={'---'} {...register('genre',{required: 'Genre of the movie is reuired.'})}>
                     <option>Action</option>
@@ -89,6 +104,19 @@ const EditItems = () => {
                 </FormErrorMessage>
             </FormControl>
 
+            <Stack spacing={10}>
+                <Button
+                    bgGradient={'linear(to-r, red.500,pink.500)'}
+                    color={'white'}
+                    _hover={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
+                    _active={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
+                    _focus={{ boxShadow: 'none' }}
+                    disabled={!isValid}     // 全てのバリデーションが通過すると自動的に解除
+                    isLoading={isSubmitting}    // フォーム送信中にロード表示
+                >
+                    Create Clip
+                </Button>
+            </Stack>
         </Stack>
     )
 }
