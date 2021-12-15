@@ -43,7 +43,6 @@ const EditItems = () => {
                 <Input
                     name={'title'}
                     placeholder={'Title'}
-                    ref={register({required: "Title is required"})}
                 />
                 <FormErrorMessage>
                     {errors.title && errors.title.message}
