@@ -11,9 +11,12 @@ import {
     NumberInputStepper,
     NumberIncrementStepper,
     NumberDecrementStepper,
+    useToast,
 } from '@chakra-ui/react'
 import * as React from "react"
-import { useForm, useFormState } from 'react-hook-form'
+import { useState, useEffect } from 'react'
+import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 interface EditItemsProps {
     title: string,
@@ -24,22 +27,37 @@ interface EditItemsProps {
 
 const EditItems = () => {
 
+    // react-hook-form
     const { register, formState: {errors, isSubmitting, isValid}, handleSubmit } = useForm<EditItemsProps>({
         mode: 'all',  // 何も入力されていない場合、入力内容が正しくない場合、それぞれにおいてバリデーションが走る
     })
+    const [data, setClips] = useState<EditItemsProps>()
+    const toast = useToast()
 
     const genreArray = [
         'Action','Comedy','Anime'
     ]
 
-    // Receives an element of type EditItemProps from the input and displays it on the console .
     const onSubmit = (data: EditItemsProps) => {
-        console.log(data)
+
+        toast ({
+            title: 'Success',
+            description: 'Success',
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+        })
+        setClips(data)
+
+        axios.post('http://localhost:5000/edit_movie', data).then((res: any) => {
+            console.log(res)
+        })
     }
+    console.log(data)
     
     return (
         <Stack spacing={4}>
-
+            <form onSubmit={handleSubmit(onSubmit)}>
             <FormControl
                 id={'title'}
                 isRequired
@@ -47,7 +65,6 @@ const EditItems = () => {
             >
                 <FormLabel htmlFor={'title'}>Title</FormLabel>
                 <Input
-                    // name={'title'}
                     placeholder={'Title'}
                     {...register('title', { required: 'Title of the movie is required.'})}
                 />
@@ -100,21 +117,22 @@ const EditItems = () => {
             >
                 <FormLabel htmlFor={'genre'}>Genre</FormLabel>
                 <Select placeholder={'---'} {...register('genre',{required: 'Genre of the movie is reuired.'})}>
-                    <option>Action</option>
-                    <option>Comedy</option>
-                    <option>Anime</option>
+                    {genreArray.map((genre, index) => (
+                        <option key={index} value={index}>{genre}</option>
+                    ))}
                 </Select>
                 <FormErrorMessage>
                     {errors.genre && errors.genre.message}
                 </FormErrorMessage>
             </FormControl>
 
-            <Stack spacing={10}>
+            <Stack spacing={10} pt={8}>
                 <Button
                     bgGradient={'linear(to-r, red.500,pink.500)'}
                     color={'white'}
+                    type={'submit'}     // onSubmit動かんかった理由こいつ
                     _hover={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
-                    _active={{ bgGradient: 'linear(to-r, red.400,pink.400)' }}
+                    _active={{ bgGradient: 'linear(to-r, red.500,pink.500)' }}
                     _focus={{ boxShadow: 'none' }}
                     disabled={!isValid}     // 全てのバリデーションが通過すると自動的に解除
                     isLoading={isSubmitting}    // フォーム送信中にロード表示
@@ -122,6 +140,7 @@ const EditItems = () => {
                     Create Clip
                 </Button>
             </Stack>
+            </form>
         </Stack>
     )
 }
