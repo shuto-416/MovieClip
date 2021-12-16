@@ -17,28 +17,24 @@ import * as React from "react"
 import { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-
-interface EditItemsProps {
-    title: string,
-    description: string,
-    rating: number,
-    genre: number,
-}
+import{ movie_types } from '../../types/movie_type'
 
 const EditItems = () => {
 
     // react-hook-form
-    const { register, formState: {errors, isSubmitting, isValid}, handleSubmit } = useForm<EditItemsProps>({
+    const { register, formState: {errors, isSubmitting, isValid}, handleSubmit } = useForm<movie_types>({
         mode: 'all',  // 何も入力されていない場合、入力内容が正しくない場合、それぞれにおいてバリデーションが走る
     })
-    const [data, setClips] = useState<EditItemsProps>()
+    const [data, setClips] = useState<movie_types>()
     const toast = useToast()
 
+    const Action=1, Comedy=2, Anime=3
+
     const genreArray = [
-        'Action','Comedy','Anime'
+        Action,Comedy,Anime
     ]
 
-    const onSubmit = (data: EditItemsProps) => {
+    const onSubmit = (data: movie_types) => {
 
         toast ({
             title: 'Success',
@@ -49,7 +45,7 @@ const EditItems = () => {
         })
         setClips(data)
 
-        axios.post('http://localhost:5000/edit_movie', data).then((res: any) => {
+        axios.post('http://localhost:5000/edit_movies', data).then((res: any) => {
             console.log(res)
         })
     }
