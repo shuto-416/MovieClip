@@ -110,7 +110,7 @@ const Header = () => {
                             bgGradient={'linear(to-r, red.400,pink.400)'}
                             _hover = {{ bg: 'linear(to-r, red.400,pink.400)' }} // hover action
                         >
-                            EDIT
+                            POST
                         </Button>
                     </Link>
 

@@ -11,13 +11,12 @@ import {
     NumberInputStepper,
     NumberIncrementStepper,
     NumberDecrementStepper,
-    useToast,
 } from '@chakra-ui/react'
 import * as React from "react"
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import axios from 'axios'
-import{ movie_types } from '../../types/movie_type'
+import{ movie_types, movie_enum } from '../../types/movie_type'
 
 const EditItems = () => {
 
@@ -26,30 +25,23 @@ const EditItems = () => {
         mode: 'all',  // 何も入力されていない場合、入力内容が正しくない場合、それぞれにおいてバリデーションが走る
     })
     const [data, setClips] = useState<movie_types>()
-    const toast = useToast()
 
     const Action=1, Comedy=2, Anime=3
 
     const genreArray = [
-        Action,Comedy,Anime
+        'Action',
+        'Comedy',
+        'Anime'
     ]
 
     const onSubmit = (data: movie_types) => {
 
-        toast ({
-            title: 'Success',
-            description: 'Success',
-            status: 'success',
-            duration: 9000,
-            isClosable: true,
-        })
         setClips(data)
 
         axios.post('http://localhost:5000/edit_movies', data).then((res: any) => {
             console.log(res)
         })
     }
-    console.log(data)
     
     return (
         <Stack spacing={4}>
@@ -113,8 +105,8 @@ const EditItems = () => {
             >
                 <FormLabel htmlFor={'genre'}>Genre</FormLabel>
                 <Select placeholder={'---'} {...register('genre',{required: 'Genre of the movie is reuired.'})}>
-                    {genreArray.map((genre, index) => (
-                        <option key={index} value={index}>{genre}</option>
+                    {genreArray.map((genre) => (
+                        <option>{genre}</option>
                     ))}
                 </Select>
                 <FormErrorMessage>

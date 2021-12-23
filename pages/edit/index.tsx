@@ -12,7 +12,6 @@ import EditItems from './EditItems'
 const Edit = () => {
     return(
         <Flex
-            // minH={'100vh'}
             w={'100%'}
             align={'center'}
             justify={'center'}
